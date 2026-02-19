@@ -1,0 +1,9 @@
+h1 {
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 3em;
+    text-align: center;
+}
+
+p {
+    font-family: var(--font-plex-sans), sans-serif;
+}
