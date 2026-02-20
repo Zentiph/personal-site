@@ -2,11 +2,12 @@ import { GitHubIcon } from "@/app/components/icons/github-icon";
 import { PDFIcon } from "@/app/components/icons/pdf-icon";
 import { EmailIcon } from "@/app/components/icons/email-icon";
 import { LinkedInIcon } from "@/app/components/icons/linkedin-icon";
+import { ResumeIcon } from "../components/icons/resume-icon";
 
 export default function Home() {
   const iconLinkStyle =
     "text-[var(--color-foreground-dim)] " +
-    "transition-[filter,color] duration-200 " +
+    "transition-[filter,color] duration-250 " +
     "hover:text-[var(--color-foreground)] " +
     "hover:[filter:drop-shadow(0_0_4px_currentColor)]";
 
@@ -25,16 +26,6 @@ export default function Home() {
       <ul className="m-8 flex justify-center gap-6">
         <li>
           <a
-            href="/resume.pdf"
-            className={iconLinkStyle}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <PDFIcon className="h-12 w-12" />
-          </a>
-        </li>
-        <li>
-          <a
             href="https://github.com/Zentiph"
             className={iconLinkStyle}
             target="_blank"
@@ -51,6 +42,16 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <LinkedInIcon className="h-12 w-12" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="/resume.pdf"
+            className={iconLinkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ResumeIcon className="h-12 w-12" />
           </a>
         </li>
         <li>
