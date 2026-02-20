@@ -12,14 +12,24 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="m-3 mt-20 font-mono text-6xl text-center [filter:drop-shadow(0_0_16_currentColor)]">
+      <h1
+        className="m-3 mt-20 font-mono text-6xl text-center
+                   [filter:drop-shadow(0_0_16_currentColor)]"
+      >
         Gavin Borne
       </h1>
-      <p className="m-3 text-[1.75rem] text-center text-foreground-dim">Computer Science Student</p>
+      <p className="m-3 text-[1.75rem] text-center text-foreground-dim">
+        Computer Science Student
+      </p>
 
       <ul className="m-8 flex justify-center gap-6">
         <li>
-          <a href="/resume.pdf" className={iconLinkStyle} target="_blank" rel="noopener noreferrer">
+          <a
+            href="/resume.pdf"
+            className={iconLinkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <PDFIcon className="h-12 w-12" />
           </a>
         </li>
