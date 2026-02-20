@@ -12,7 +12,7 @@ import LinksList from "../components/home/links-list";
 export default function Home() {
   return (
     <main>
-      <h1 className="m-3 mt-20 font-mono text-6xl text-center glow-4">Gavin Borne</h1>
+      <h1 className="m-3 mt-20 font-mono text-8xl text-center glow-4">Gavin Borne</h1>
       <p className="m-3 text-[1.75rem] text-center text-foreground-dim">
         Computer Science Student
       </p>
