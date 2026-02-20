@@ -1,15 +1,14 @@
-import { GitHubIcon } from "@/app/components/icons/github-icon";
-import { PDFIcon } from "@/app/components/icons/pdf-icon";
-import { EmailIcon } from "@/app/components/icons/email-icon";
-import { LinkedInIcon } from "@/app/components/icons/linkedin-icon";
+import LinksList from "../components/home/links-list";
 
+/**
+ * The homepage component.
+ *
+ * This component renders the homepage content, including the
+ * heading, subheading, and links list.
+ *
+ * @returns A JSX element representing the homepage content.
+ */
 export default function Home() {
-  const iconLinkStyle =
-    "text-[var(--color-foreground-dim)] " +
-    "transition-[filter,color] duration-200 " +
-    "hover:text-[var(--color-foreground)] " +
-    "hover:[filter:drop-shadow(0_0_4px_currentColor)]";
-
   return (
     <main>
       <h1
@@ -22,48 +21,7 @@ export default function Home() {
         Computer Science Student
       </p>
 
-      <ul className="m-8 flex justify-center gap-6">
-        <li>
-          <a
-            href="/resume.pdf"
-            className={iconLinkStyle}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <PDFIcon className="h-12 w-12" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/Zentiph"
-            className={iconLinkStyle}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHubIcon className="h-12 w-12" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://linkedin.com/in/gavin-borne"
-            className={iconLinkStyle}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon className="h-12 w-12" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:gavin.bor0925@gmail.com"
-            className={iconLinkStyle}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <EmailIcon className="h-12 w-12" />
-          </a>
-        </li>
-      </ul>
+      <LinksList className="m-8 flex justify-center gap-6" />
 
       <p className="text-[1.25rem]">The</p>
     </main>

@@ -2,8 +2,20 @@
 
 :root {
   --color-background: #ffffff;
+  --color-background-gradient-fade: #ededed;
+
   --color-foreground: #171717;
   --color-foreground-dim: #333333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0a0a0a;
+    --color-background-gradient-fade: #171717;
+
+    --color-foreground: #ededed;
+    --color-foreground-dim: #d1d1d1;
+  }
 }
 
 @layer utilities {
@@ -25,18 +37,18 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
-    --color-foreground-dim: #d1d1d1;
-  }
+html {
+  min-height: 100vh;
 }
 
 body {
   width: 60%;
   margin: 0 auto;
-  background: var(--color-background);
+  background: linear-gradient(
+    to bottom,
+    var(--color-background),
+    var(--color-background-gradient-fade)
+  );
   color: var(--color-foreground);
   font-family: var(--font-family-sans);
 }

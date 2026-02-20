@@ -1,11 +1,11 @@
 import { IconBase, IconProps } from "./icon-base";
 
 /**
- * Renders a GitHub icon.
+ * An icon of GitHub's logo.
  *
  * @param {IconProps} props - The props object of IconBase.
  *
- * @returns {JSX.Element} - The rendered GitHub icon.
+ * @returns The rendered GitHub icon.
  */
 export function GitHubIcon(props: IconProps) {
   return (
