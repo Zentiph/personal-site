@@ -12,11 +12,11 @@ import { ResumeIcon } from "../icons/resume-icon";
  */
 export default function LinksList({ className }: { className?: string }) {
   const iconLinkStyle =
-    "flex flex-col items-center gap-2" +
+    "flex flex-col items-center gap-2 " +
     "text-[var(--color-foreground-dim)] " +
-    "transition-[filter,color] duration-250 " +
+    "transition-[filter,color] duration-200 " +
     "hover:text-[var(--color-foreground)] " +
-    "hover:[filter:drop-shadow(0_0_4px_currentColor)]";
+    "hover:glow-1";
 
   return (
     <ul className={className}>
