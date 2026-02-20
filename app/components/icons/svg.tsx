@@ -32,12 +32,17 @@ export function IconBase({
   children,
   ...rest
 }: IconBaseProps) {
+  const style = {
+    ...(rest.style ?? {}),
+    ...(color !== undefined ? { color } : {}), // only set if provided
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox={viewBox}
       className={className}
-      style={{ color, ...(rest.style ?? {}) }}
+      style={style}
       aria-hidden={title ? undefined : "true"}
       role={title ? "img" : "presentation"}
       focusable="false"
