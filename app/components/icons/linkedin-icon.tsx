@@ -1,5 +1,12 @@
 import { IconBase, IconProps } from "./svg";
 
+/**
+ * An icon representing LinkedIn.
+ *
+ * @param {IconProps} props - The props for the icon.
+ *
+ * @returns A JSX element representing the icon.
+ */
 export function LinkedInIcon(props: IconProps) {
   return (
     <IconBase {...props} viewBox="0 0 24 24">

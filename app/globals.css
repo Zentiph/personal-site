@@ -4,9 +4,25 @@
   --color-background: #ffffff;
   --color-foreground: #171717;
   --color-foreground-dim: #333333;
+}
 
-  --font-family-sans: var(--font-plex-sans), Helvetica, Arial, sans-serif;
-  --font-family-mono: var(--font-plex-mono), Courier, monospace;
+@layer utilities {
+  .font-sans {
+    font-family: var(--font-sans), Helvetica, Arial, system-ui, sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-mono), Courier, ui-monospace, SFMono-Regular, monospace;
+  }
+
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  .text-foreground {
+    color: var(--color-foreground);
+  }
+  .text-foreground-dim {
+    color: var(--color-foreground-dim);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

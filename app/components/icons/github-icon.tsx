@@ -1,5 +1,12 @@
 import { IconBase, IconProps } from "./svg";
 
+/**
+ * Renders a GitHub icon.
+ *
+ * @param {IconProps} props - The props object of IconBase.
+ *
+ * @returns {JSX.Element} - The rendered GitHub icon.
+ */
 export function GitHubIcon(props: IconProps) {
   return (
     <IconBase {...props} viewBox="0 0 24 24">

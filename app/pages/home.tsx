@@ -1,5 +1,4 @@
 import { GitHubIcon } from "@/app/components/icons/github-icon";
-import "./home.css";
 import { PDFIcon } from "@/app/components/icons/pdf-icon";
 import { EmailIcon } from "@/app/components/icons/email-icon";
 import { LinkedInIcon } from "@/app/components/icons/linkedin-icon";
@@ -7,10 +6,10 @@ import { LinkedInIcon } from "@/app/components/icons/linkedin-icon";
 export default function Home() {
   return (
     <main>
-      <h1>Gavin Borne</h1>
-      <p className="subtitle">Computer Science Student</p>
+      <h1 className="m-3 mt-20 font-mono text-6xl text-center">Gavin Borne</h1>
+      <p className="m-3 text-[1.75rem] text-center text-foreground-dim">Computer Science Student</p>
 
-      <ul className="icon-links">
+      <ul className="m-8 flex justify-center gap-6">
         <li>
           <a href="/resume.pdf">
             <PDFIcon className="h-12 w-12" />

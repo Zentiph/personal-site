@@ -3,12 +3,12 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+  variable: "--font-mono",
   weight: "400",
   subsets: ["latin"],
 });
@@ -24,10 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${plexSans.variable} ${plexMono.variable} antialiased font-sans`}>
-        {children}
-      </body>
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
+      <body className={"antialiased font-sans"}>{children}</body>
     </html>
   );
 }
