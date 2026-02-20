@@ -1,4 +1,4 @@
-import { IconBase, IconProps } from "./svg";
+import { IconBase, IconProps } from "./icon-base";
 
 /**
  * An icon representing an email.
