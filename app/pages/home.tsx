@@ -19,22 +19,37 @@ export default function Home() {
 
       <ul className="m-8 flex justify-center gap-6">
         <li>
-          <a href="/resume.pdf" className={iconLinkStyle}>
+          <a href="/resume.pdf" className={iconLinkStyle} target="_blank" rel="noopener noreferrer">
             <PDFIcon className="h-12 w-12" />
           </a>
         </li>
         <li>
-          <a href="https://github.com/Zentiph" className={iconLinkStyle}>
+          <a
+            href="https://github.com/Zentiph"
+            className={iconLinkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GitHubIcon className="h-12 w-12" />
           </a>
         </li>
         <li>
-          <a href="https://linkedin.com/in/gavin-borne" className={iconLinkStyle}>
+          <a
+            href="https://linkedin.com/in/gavin-borne"
+            className={iconLinkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedInIcon className="h-12 w-12" />
           </a>
         </li>
         <li>
-          <a href="mailto:gavin.bor0925@gmail.com" className={iconLinkStyle}>
+          <a
+            href="mailto:gavin.bor0925@gmail.com"
+            className={iconLinkStyle}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <EmailIcon className="h-12 w-12" />
           </a>
         </li>
