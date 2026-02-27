@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export type IconProps = {
   color?: string; // icon color
   title?: string; // accessability label

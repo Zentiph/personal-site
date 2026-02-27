@@ -1,7 +1,7 @@
-import { EmailIcon } from "../icons/email-icon";
-import { GitHubIcon } from "../icons/github-icon";
-import { LinkedInIcon } from "../icons/linkedin-icon";
-import { ResumeIcon } from "../icons/resume-icon";
+import { EmailIcon } from "../icons/svg/email-icon";
+import { GitHubIcon } from "../icons/svg/github-icon";
+import { LinkedInIcon } from "../icons/svg/linkedin-icon";
+import { ResumeIcon } from "../icons/svg/resume-icon";
 
 /**
  * A component that renders a list of links with icons.
