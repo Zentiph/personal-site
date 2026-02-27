@@ -20,8 +20,6 @@ export default function Home() {
       <LinksList className="m-8 flex justify-center gap-6" />
 
       <About />
-
-      <p className="text-[1.25rem]">The</p>
     </main>
   );
 }
