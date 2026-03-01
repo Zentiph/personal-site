@@ -1,4 +1,4 @@
-import BadgeIcon from "../icons/badge-icon";
+import Languages from "./languages";
 
 /**
  * The about section of the page.
@@ -31,42 +31,7 @@ export default function About({ className }: { className?: string }) {
         effectively, can come together to build a whole, is what I love.
       </p>
 
-      <section>
-        <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">Languages</h3>
-
-        <ul className="m-5 flex justify-center gap-6">
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/python.svg" text="Python" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/java.svg" text="Java" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/c.svg" text="C" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/rust.svg" text="Rust" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/lua.svg" text="Lua" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/luau.svg" text="Luau" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/html.svg" text="HTML" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/css.svg" text="CSS" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/javascript.svg" text="JavaScript" />
-          </li>
-          <li>
-            <BadgeIcon imgSrc="/icons/badges/typescript.svg" text="TypeScript" />
-          </li>
-        </ul>
-      </section>
+      <Languages />
 
       <section>
         <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">
