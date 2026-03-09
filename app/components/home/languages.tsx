@@ -8,11 +8,13 @@ import BadgeIcon from "../icons/badge-icon";
  * @returns The JSX element representing the component.
  */
 export default function Languages({ className }: { className?: string }) {
+  const ulStyle = "m-5 flex justify-center gap-6";
+
   return (
     <section className={className}>
       <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">Languages</h3>
 
-      <ul className="m-5 flex justify-center gap-6">
+      <ul className={ulStyle}>
         <li>
           <BadgeIcon imgSrc="/icons/badges/python.svg" text="Python" />
         </li>
@@ -31,6 +33,9 @@ export default function Languages({ className }: { className?: string }) {
         <li>
           <BadgeIcon imgSrc="/icons/badges/luau.svg" text="Luau" />
         </li>
+      </ul>
+
+      <ul className={ulStyle}>
         <li>
           <BadgeIcon imgSrc="/icons/badges/html.svg" text="HTML" />
         </li>
