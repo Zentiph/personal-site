@@ -17,7 +17,25 @@ export default function Frameworks({ className }: { className?: string }) {
 
       <ul className={ulStyle}>
         <li className={liStyle}>
-          <BadgeIcon imgSrc="/icons/badges/" text="" />
+          <BadgeIcon imgSrc="/icons/badges/pytest.svg" text="Pytest" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/pillow.png" text="PIL (Pillow)" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/discord_py.png" text="discord.py" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/openjdk.svg" text="JavaFX" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/junit.svg" text="Junit 5" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/spring_boot.svg" text="Spring Boot" />
+        </li>
+        <li className={liStyle}>
+          <BadgeIcon imgSrc="/icons/badges/angular.svg" text="Angular" />
         </li>
       </ul>
     </section>

@@ -1,3 +1,4 @@
+import Frameworks from "./frameworks";
 import Languages from "./languages";
 
 /**
@@ -34,13 +35,7 @@ export default function About({ className }: { className?: string }) {
 
       <Languages />
 
-      <section>
-        <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">
-          Frameworks
-        </h3>
-
-        <ul className="m-5 flex justify-center gap-6"></ul>
-      </section>
+      <Frameworks />
 
       <section>
         <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">Tools</h3>

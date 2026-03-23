@@ -26,11 +26,11 @@ export default function Home() {
       <footer className="m-3 text-[1rem] text-center text-foreground-dim">
         <p>&copy; {new Date().getFullYear()} Gavin Borne</p>
         <p>
-          Dev icons obtained from{" "}
+          Dev icons primarily obtained from{" "}
           <a href="https://devicon.dev/" className="link">
             devicon.dev
           </a>
-          .
+          . Other icons obtained from various sources.
         </p>
       </footer>
     </>
