@@ -26,7 +26,7 @@ export default function Frameworks({ className }: { className?: string }) {
           <BadgeIcon imgSrc="/icons/badges/discord_py.png" text="discord.py" />
         </li>
         <li className={liStyle}>
-          <BadgeIcon imgSrc="/icons/badges/openjdk.svg" text="JavaFX" />
+          <BadgeIcon imgSrc="/icons/badges/duke.png" text="JavaFX" />
         </li>
         <li className={liStyle}>
           <BadgeIcon imgSrc="/icons/badges/junit.svg" text="Junit 5" />

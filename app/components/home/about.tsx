@@ -1,3 +1,4 @@
+import DevTools from "./dev-tools";
 import Frameworks from "./frameworks";
 import Languages from "./languages";
 
@@ -37,11 +38,7 @@ export default function About({ className }: { className?: string }) {
 
       <Frameworks />
 
-      <section>
-        <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">Tools</h3>
-
-        <ul className="m-5 flex justify-center gap-6"></ul>
-      </section>
+      <DevTools />
     </section>
   );
 }
