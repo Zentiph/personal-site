@@ -1,6 +1,8 @@
+import Image from "next/image";
 import DevTools from "./dev-tools";
 import Frameworks from "./frameworks";
 import Languages from "./languages";
+import Avatar from "./avatar";
 
 /**
  * The about section of the page.

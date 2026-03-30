@@ -1,4 +1,5 @@
 import About from "../components/home/about";
+import Avatar from "../components/home/avatar";
 import LinksList from "../components/home/links-list";
 
 /**
@@ -13,24 +14,27 @@ export default function Home() {
   return (
     <>
       <main>
-        <h1 className="m-3 mt-50 font-mono text-8xl text-center glow-4">Gavin Borne</h1>
-        <p className="m-3 text-[1.75rem] text-center text-foreground-dim">
-          Full-Stack Developer
-        </p>
+        <div className="m-3 mt-50 flex flex-col items-center text-center">
+          <Avatar src="/me.jpeg" alt="Gavin Borne" height={256} width={256} />
+          <h1 className="m-3 font-mono text-8xl text-center glow-4">Gavin Borne</h1>
+          <p className="m-3 text-[1.75rem] text-center text-foreground-dim">
+            Full-Stack Developer
+          </p>
+        </div>
 
         <LinksList className="m-8 flex justify-center gap-6" />
 
         <About />
       </main>
 
-      <footer className="m-3 text-[1rem] text-center text-foreground-dim">
+      <footer className="m-3 mt-25 text-[1rem] text-center text-foreground-dim">
         <p>&copy; {new Date().getFullYear()} Gavin Borne</p>
         <p>
           Dev icons primarily obtained from{" "}
           <a href="https://devicon.dev/" className="link">
             devicon.dev
           </a>
-          . Other icons obtained from various sources.
+          {""}. Other icons obtained from various sources.
         </p>
       </footer>
     </>
