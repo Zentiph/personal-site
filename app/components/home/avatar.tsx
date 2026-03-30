@@ -1,20 +1,20 @@
 import Image from "next/image";
 
+type AvatarProps = {
+  readonly src: string;
+  readonly alt: string;
+  readonly height?: number;
+  readonly width?: number;
+};
+
 /**
  * A component that displays an avatar.
- * @param {string, string, number, number} props - The source of the avatar image, its alternative text, height, and width.
+ * @param {string} [props.src] - The source of the avatar image.
+ * @param {string} [props.alt] - The alternative text for the avatar image.
+ * @param {number} [props.height=128] - The height of the avatar in pixels.
+ * @param {number} [props.width=128] - The width of the avatar in pixels.
  */
-export default function Avatar({
-  src,
-  alt,
-  height = 128,
-  width = 128,
-}: {
-  src: string;
-  alt: string;
-  height?: number;
-  width?: number;
-}) {
+export default function Avatar({ src, alt, height = 128, width = 128 }: AvatarProps) {
   return (
     <div
       style={{ height, width }}

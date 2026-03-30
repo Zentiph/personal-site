@@ -1,17 +1,19 @@
-import Image from "next/image";
 import DevTools from "./dev-tools";
 import Frameworks from "./frameworks";
 import Languages from "./languages";
-import Avatar from "./avatar";
+
+type AboutProps = {
+  readonly className?: string;
+};
 
 /**
  * The about section of the page.
  *
- * @param {string} [className] - Additional CSS classes for the component.
+ * @param {string} [props.className] - Additional CSS classes for the component.
  *
  * @returns A JSX element representing the component.
  */
-export default function About({ className }: { className?: string }) {
+export default function About({ className }: AboutProps) {
   const p_style = "m-3 text-[1.3rem] text-center";
 
   return (

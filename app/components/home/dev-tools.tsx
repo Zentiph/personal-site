@@ -1,11 +1,15 @@
 import BadgeIcon from "../icons/badge-icon";
 
+type DevToolsProps = {
+  readonly className?: string;
+};
+
 /**
  * A component that displays a list of development tools.
- * @param {string} [className] - Additional CSS classes for the component.
+ * @param {string} [props.className] - Additional CSS classes for the component.
  * @returns The JSX element representing the component.
  */
-export default function DevTools({ className }: { className?: string }) {
+export default function DevTools({ className }: DevToolsProps) {
   const ulStyle = "m-5 flex flex-wrap justify-center gap-6 max-w-[600px] mx-auto";
   const liStyle = "min-w-[80px] flex justify-center";
 

@@ -31,8 +31,8 @@ export function IconBase({
   ...rest
 }: IconBaseProps) {
   const style = {
-    ...(rest.style ?? {}),
-    ...(color !== undefined ? { color } : {}), // only set if provided
+    ...rest.style,
+    ...(color === undefined ? {} : { color }), // only set if provided
   };
 
   return (
@@ -42,7 +42,6 @@ export function IconBase({
       className={className}
       style={style}
       aria-hidden={title ? undefined : "true"}
-      role={title ? "img" : "presentation"}
       focusable="false"
       {...rest}
     >
