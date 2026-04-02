@@ -4,6 +4,7 @@
 :root {
   --color-background: #0a0a0a;
   --color-background-gradient-fade: #171717;
+  --color-card: #111111;
 
   --color-foreground: #ededed;
   --color-foreground-dim: #d1d1d1;
@@ -15,11 +16,15 @@
     font-family: var(--font-sans), Helvetica, Arial, system-ui, sans-serif;
   }
   .font-mono {
-    font-family: var(--font-mono), Courier, ui-monospace, SFMono-Regular, monospace;
+    font-family:
+      var(--font-mono), Courier, ui-monospace, SFMono-Regular, monospace;
   }
 
   .bg-background {
     background-color: var(--color-background);
+  }
+  .bg-card {
+    background-color: var(--color-card);
   }
   .text-foreground {
     color: var(--color-foreground);
