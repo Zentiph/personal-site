@@ -16,7 +16,8 @@ type GQLRepo = {
   };
 };
 
-const PLACEHOLDER_IMAGE = "https://placehold.co/640x320";
+const PLACEHOLDER_IMAGE =
+  "https://dummyimage.com/640x320/000/ffffff&text=[+no+image+found+]";
 
 const USERNAME = "Zentiph";
 
