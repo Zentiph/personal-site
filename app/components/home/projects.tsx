@@ -17,7 +17,7 @@ type GQLRepo = {
 };
 
 const PLACEHOLDER_IMAGE =
-  "https://dummyimage.com/640x320/000/ffffff&text=[+no+image+found+]";
+  "https://dummyimage.com/640x320/000/ffffff&text=[+no+image+]";
 
 const USERNAME = "Zentiph";
 
@@ -55,7 +55,7 @@ const GRAPHQL_QUERY = `
  * Gets all repos for a user.
  * @returns A promise that resolves to an array of repos.
  */
-async function getRepos(user: string): Promise<GQLRepo[]> {
+async function getRepos(): Promise<GQLRepo[]> {
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
@@ -80,10 +80,10 @@ async function getRepos(user: string): Promise<GQLRepo[]> {
  * @returns The JSX element representing the component.
  */
 export default async function Projects() {
-  const repos = await getRepos(USERNAME);
+  const repos = await getRepos();
 
   return (
-    <section>
+    <section id="projects">
       <h2 className="m-5 mt-50 font-mono text-5xl text-center glow-1">
         Featured Projects
       </h2>

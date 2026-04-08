@@ -1,8 +1,3 @@
-import DevTools from "./dev-tools";
-import Frameworks from "./frameworks";
-import Languages from "./languages";
-import Projects from "./projects";
-
 type AboutProps = {
   readonly className?: string;
 };
@@ -18,7 +13,7 @@ export default function About({ className }: AboutProps) {
   const p_style = "m-3 text-[1.3rem] text-center";
 
   return (
-    <section className={className}>
+    <section className={className} id="about">
       <h2 className="m-5 mt-50 font-mono text-5xl text-center glow-1">About</h2>
 
       <p className={p_style}>
@@ -39,14 +34,6 @@ export default function About({ className }: AboutProps) {
         individual pieces, when arranged effectively, can come together to build
         a whole, is what I love.
       </p>
-
-      <Languages />
-
-      <Frameworks />
-
-      <DevTools />
-
-      <Projects />
     </section>
   );
 }
