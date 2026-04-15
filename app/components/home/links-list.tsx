@@ -3,14 +3,18 @@ import { GitHubIcon } from "../icons/svg/github-icon";
 import { LinkedInIcon } from "../icons/svg/linkedin-icon";
 import { ResumeIcon } from "../icons/svg/resume-icon";
 
+type LinksListProps = {
+  readonly className?: string;
+};
+
 /**
  * A component that renders a list of links with icons.
  *
- * @param {string} [className] - Additional CSS classes for the component.
+ * @param {string} [props.className] - Additional CSS classes for the component.
  *
  * @returns A JSX element representing the component.
  */
-export default function LinksList({ className }: { className?: string }) {
+export default function LinksList({ className }: LinksListProps) {
   const iconLinkStyle =
     "flex flex-col items-center gap-2 " +
     "text-[var(--color-foreground-dim)] " +
