@@ -14,7 +14,12 @@ type AvatarProps = {
  * @param {number} [props.height=128] - The height of the avatar in pixels.
  * @param {number} [props.width=128] - The width of the avatar in pixels.
  */
-export default function Avatar({ src, alt, height = 128, width = 128 }: AvatarProps) {
+export default function Avatar({
+  src,
+  alt,
+  height = 128,
+  width = 128,
+}: AvatarProps) {
   return (
     <div
       style={{ height, width }}
@@ -24,6 +29,7 @@ export default function Avatar({ src, alt, height = 128, width = 128 }: AvatarPr
         src={src}
         alt={alt}
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         style={{ objectFit: "cover" }}
         className="rounded-full"
       />
