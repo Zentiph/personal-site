@@ -19,8 +19,9 @@ import Navbar from "../components/navbar";
 export default function Home() {
   return (
     <>
+      <Navbar />
+      <div className="w-[55%] mx-auto">
       <main>
-        <Navbar />
 
         <section id="home">
           <div
@@ -54,6 +55,7 @@ export default function Home() {
           {""}. Other icons obtained from various sources.
         </p>
       </footer>
+      </div>
     </>
   );
 }
