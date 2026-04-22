@@ -55,11 +55,17 @@ const GRAPHQL_QUERY = `#graphql
  * Gets all repos for a user.
  * @returns A promise that resolves to an array of repos.
  */
-async function getRepos(): Promise<GQLRepo[]> {
+async function getRepos(): Promise<GQLRepo[] | null> {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) {
+    console.error("Missing GITHUB_TOKEN");
+    return null;
+  }
+
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query: GRAPHQL_QUERY }),
@@ -67,6 +73,14 @@ async function getRepos(): Promise<GQLRepo[]> {
   });
 
   const { data } = await res.json();
+  if (!data?.user?.repositories?.nodes) {
+    console.error(
+      "Missing user repository nodes data from GitHub API;" +
+        " Likely caused by invalid token",
+    );
+    return null;
+  }
+
   const repos: GQLRepo[] = data.user.repositories.nodes;
 
   return repos.filter((repo) =>
@@ -88,72 +102,80 @@ export default async function Projects() {
         Featured Projects
       </h2>
 
-      <ul
-        className={
-          "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
-        }
-      >
-        {repos.map((repo) => (
-          <li key={repo.name} className="min-w-[80px] flex justify-center">
-            <a
-              href={repo.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                "flex flex-col rounded-md overflow-hidden " +
-                "border border-white/10 hover:border-white/30 " +
-                "transition-colors items-center justify-start bg-card"
-              }
-            >
-              <img
-                src={
-                  repo.usesCustomOpenGraphImage
-                    ? repo.openGraphImageUrl
-                    : PLACEHOLDER_IMAGE
+      {repos ? (
+        <ul
+          className={
+            "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
+          }
+        >
+          {repos.map((repo) => (
+            <li key={repo.name} className="min-w-[80px] flex justify-center">
+              <a
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={
+                  "flex flex-col rounded-md overflow-hidden " +
+                  "border border-white/10 hover:border-white/30 " +
+                  "transition-colors items-center justify-start bg-card"
                 }
-                alt={repo.name}
-                className="w-full aspect-[2/1] object-cover rounded-t-md"
-              />
-              <div className="p-3 w-full flex flex-col gap-2">
-                <h3 className="font-mono text-2xl">{repo.name}</h3>
-                <p className="text-sm text-foreground-dim">
-                  {repo.description || "No description provided."}
-                </p>
-                <div className="flex items-center gap-3 text-xs text-foreground-dim mt-1">
-                  {repo.primaryLanguage && (
-                    <span className="flex items-center gap-1">
-                      <span
-                        className="inline-block w-2.5 h-2.5 rounded-full"
-                        style={{ backgroundColor: repo.primaryLanguage.color }}
-                      />
-                      {repo.primaryLanguage.name}
-                    </span>
-                  )}
-                  {repo.stargazerCount > 0 && (
-                    <span className="flex items-center gap-1">
-                      ★ {repo.stargazerCount}
-                    </span>
+              >
+                <img
+                  src={
+                    repo.usesCustomOpenGraphImage
+                      ? repo.openGraphImageUrl
+                      : PLACEHOLDER_IMAGE
+                  }
+                  alt={repo.name}
+                  className="w-full aspect-[2/1] object-cover rounded-t-md"
+                />
+                <div className="p-3 w-full flex flex-col gap-2">
+                  <h3 className="font-mono text-2xl">{repo.name}</h3>
+                  <p className="text-sm text-foreground-dim">
+                    {repo.description || "No description provided."}
+                  </p>
+                  <div className="flex items-center gap-3 text-xs text-foreground-dim mt-1">
+                    {repo.primaryLanguage && (
+                      <span className="flex items-center gap-1">
+                        <span
+                          className="inline-block w-2.5 h-2.5 rounded-full"
+                          style={{
+                            backgroundColor: repo.primaryLanguage.color,
+                          }}
+                        />
+                        {repo.primaryLanguage.name}
+                      </span>
+                    )}
+                    {repo.stargazerCount > 0 && (
+                      <span className="flex items-center gap-1">
+                        ★ {repo.stargazerCount}
+                      </span>
+                    )}
+                  </div>
+                  {repo.repositoryTopics.nodes.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {repo.repositoryTopics.nodes
+                        .filter((n) => n.topic.name !== "portfolio")
+                        .map((n) => (
+                          <span
+                            key={n.topic.name}
+                            className="px-2 py-0.5 rounded text-xs bg-white/10 text-foreground-dim"
+                          >
+                            {n.topic.name}
+                          </span>
+                        ))}
+                    </div>
                   )}
                 </div>
-                {repo.repositoryTopics.nodes.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {repo.repositoryTopics.nodes
-                      .filter((n) => n.topic.name !== "portfolio")
-                      .map((n) => (
-                        <span
-                          key={n.topic.name}
-                          className="px-2 py-0.5 rounded text-xs bg-white/10 text-foreground-dim"
-                        >
-                          {n.topic.name}
-                        </span>
-                      ))}
-                  </div>
-                )}
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="m-3 text-[1.3rem] text-center text-red-500">
+          There was an error fetching the repositories. Please try again later.
+        </p>
+      )}
     </section>
   );
 }
