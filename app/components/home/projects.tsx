@@ -23,7 +23,7 @@ const USERNAME = "Zentiph";
 
 const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
-const GRAPHQL_QUERY = `
+const GRAPHQL_QUERY = `#graphql
   query {
     user(login: "${USERNAME}") {
       repositories(first: ${GRAPHQL_REPO_FETCH_COUNT}) {
