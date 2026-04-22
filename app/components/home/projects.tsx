@@ -21,9 +21,9 @@ const PLACEHOLDER_IMAGE =
 
 const USERNAME = "Zentiph";
 
-const GRAPHQL_REPO_FETCH_COUNT = 20;
+const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
-const GRAPHQL_QUERY = `
+const GRAPHQL_QUERY = `#graphql
   query {
     user(login: "${USERNAME}") {
       repositories(first: ${GRAPHQL_REPO_FETCH_COUNT}) {
@@ -102,7 +102,7 @@ export default async function Projects() {
               className={
                 "flex flex-col rounded-md overflow-hidden " +
                 "border border-white/10 hover:border-white/30 " +
-                "transition-colors items-center justify-center bg-card"
+                "transition-colors items-center justify-start bg-card"
               }
             >
               <img
