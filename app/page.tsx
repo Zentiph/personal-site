@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-[55%] mx-auto">
+      <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
         <main>
           <section id="home">
             <div className="m-3 mt-30 flex flex-col items-center text-center">
