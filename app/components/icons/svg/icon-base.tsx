@@ -32,7 +32,7 @@ export function IconBase({
 }: IconBaseProps) {
   const style = {
     ...rest.style,
-    ...(color === undefined ? {} : { color }), // only set if provided
+    color,
   };
 
   return (

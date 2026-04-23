@@ -34,11 +34,6 @@ export default function Navbar() {
             Skills
           </a>
         </li>
-        <li>
-          <a href="#contact" className={aStyle}>
-            Contact
-          </a>
-        </li>
       </ul>
     </nav>
   );

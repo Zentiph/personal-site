@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Language = {
   name: string;
   color: string;
@@ -16,8 +18,7 @@ type GQLRepo = {
   };
 };
 
-const PLACEHOLDER_IMAGE =
-  "https://dummyimage.com/640x320/000/ffffff&text=[+no+image+]";
+const PLACEHOLDER_IMAGE = "/project_banner_placeholder.png";
 
 const USERNAME = "Zentiph";
 
@@ -56,21 +57,32 @@ const GRAPHQL_QUERY = `#graphql
  * @returns A promise that resolves to an array of repos.
  */
 async function getRepos(): Promise<GQLRepo[] | null> {
-  const token = process.env.GITHUB_TOKEN;
+  const token = process.env.GITHUB_API_TOKEN;
   if (!token) {
     console.error("Missing GITHUB_TOKEN");
     return null;
   }
 
-  const res = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: GRAPHQL_QUERY }),
-    next: { revalidate: 3600 },
-  });
+  let res = undefined;
+  try {
+    res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: GRAPHQL_QUERY }),
+      next: { revalidate: 3600 },
+    });
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+
+  if (!res.ok) {
+    console.error(res.status, res.statusText);
+    return null;
+  }
 
   const { data } = await res.json();
   if (!data?.user?.repositories?.nodes) {
@@ -98,7 +110,7 @@ export default async function Projects() {
 
   return (
     <section id="projects">
-      <h2 className="m-5 mt-50 font-mono text-5xl text-center glow-1">
+      <h2 className="m-5 mt-30 font-mono text-5xl text-center glow-1">
         Featured Projects
       </h2>
 
@@ -120,13 +132,15 @@ export default async function Projects() {
                   "transition-colors items-center justify-start bg-card"
                 }
               >
-                <img
+                <Image
                   src={
                     repo.usesCustomOpenGraphImage
                       ? repo.openGraphImageUrl
                       : PLACEHOLDER_IMAGE
                   }
                   alt={repo.name}
+                  width={640}
+                  height={320}
                   className="w-full aspect-[2/1] object-cover rounded-t-md"
                 />
                 <div className="p-3 w-full flex flex-col gap-2">

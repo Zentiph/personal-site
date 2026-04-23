@@ -73,7 +73,7 @@ body {
   background-attachment: fixed, fixed, fixed, fixed, fixed;
 
   color: var(--color-foreground);
-  font-family: var(--font-family-sans);
+  font-family: var(--font-sans);
 }
 
 .link {

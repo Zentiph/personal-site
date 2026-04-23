@@ -5,7 +5,7 @@ import Languages from "./languages";
 export default function Skills() {
   return (
     <section id="skills">
-      <h2 className="m-5 mt-50 font-mono text-5xl text-center glow-1">
+      <h2 className="m-5 mt-30 font-mono text-5xl text-center glow-1">
         Skills
       </h2>
 
