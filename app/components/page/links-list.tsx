@@ -61,7 +61,6 @@ export default function LinksList({ className }: LinksListProps) {
         <a
           href="mailto:gavin.bor0925@gmail.com"
           className={iconLinkStyle}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <EmailIcon className="h-12 w-12" />

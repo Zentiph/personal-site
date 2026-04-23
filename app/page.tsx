@@ -50,7 +50,7 @@ export default function Home() {
         </main>
 
         <footer className="m-3 mt-20 text-[1rem] text-center text-foreground-dim">
-          <p>&copy; {new Date().getFullYear()} Gavin Borne</p>
+          <p>&copy; 2026-present Gavin Borne</p>
           <p>
             Dev icons primarily obtained from{" "}
             <a href="https://devicon.dev/" className="link">
