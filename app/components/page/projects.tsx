@@ -26,9 +26,13 @@ const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
 const GRAPHQL_QUERY = `#graphql
   query {
-    user(login: "${USERNAME}") {
-      repositories(first: ${GRAPHQL_REPO_FETCH_COUNT}) {
-        nodes {
+    search(
+      query: "user:${USERNAME} topic:portfolio",
+      type: REPOSITORY,
+      first: ${GRAPHQL_REPO_FETCH_COUNT}
+    ) {
+      nodes {
+        ... on Repository {
           name
           description
           url
@@ -59,11 +63,11 @@ const GRAPHQL_QUERY = `#graphql
 async function getRepos(): Promise<GQLRepo[] | null> {
   const token = process.env.GITHUB_API_TOKEN;
   if (!token) {
-    console.error("Missing GITHUB_TOKEN");
+    console.error("Missing GITHUB_API_TOKEN");
     return null;
   }
 
-  let res = undefined;
+  let res: Response;
   try {
     res = await fetch("https://api.github.com/graphql", {
       method: "POST",
@@ -85,19 +89,15 @@ async function getRepos(): Promise<GQLRepo[] | null> {
   }
 
   const { data } = await res.json();
-  if (!data?.user?.repositories?.nodes) {
+  if (!data?.search?.nodes) {
     console.error(
-      "Missing user repository nodes data from GitHub API;" +
+      "Missing repository nodes data from GitHub API;" +
         " Likely caused by invalid token",
     );
     return null;
   }
 
-  const repos: GQLRepo[] = data.user.repositories.nodes;
-
-  return repos.filter((repo) =>
-    repo.repositoryTopics.nodes.some((node) => node.topic.name === "portfolio"),
-  );
+  return data.search.nodes;
 }
 
 /**

@@ -22,6 +22,7 @@ export default function Avatar({ src, alt, size = 256 }: AvatarProps) {
         src={src}
         alt={alt}
         fill
+        priority
         sizes={size + "px"}
         style={{ objectFit: "cover" }}
         className="rounded-full"

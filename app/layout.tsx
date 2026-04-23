@@ -14,9 +14,23 @@ const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
 });
 
+function getMetadataBase() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!siteUrl) {
+    console.log("Missing NEXT_PUBLIC_SITE_URL");
+    return "http://localhost:3000";
+  }
+  return new URL(siteUrl);
+}
+
 export const metadata: Metadata = {
+  metadataBase: getMetadataBase(),
   title: "Gavin Borne",
   description: "Gavin Borne's portfolio site",
+  openGraph: {
+    images: "/me.jpeg",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +39,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plexSans.variable} ${plexMono.variable}`}>
+    <html
+      lang="en"
+      className={`${plexSans.variable} ${plexMono.variable} scroll-pt-24`}
+    >
       <body className={"antialiased font-sans"}>{children}</body>
     </html>
   );

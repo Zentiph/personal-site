@@ -16,11 +16,10 @@ type LinksListProps = {
  */
 export default function LinksList({ className }: LinksListProps) {
   const iconLinkStyle =
-    "flex flex-col items-center gap-2 " +
-    "text-[var(--color-foreground-dim)] " +
+    "flex flex-col items-center gap-2 text-[var(--color-foreground-dim)] " +
     "transition-[filter,color] duration-200 " +
-    "hover:text-[var(--color-foreground)] " +
-    "hover:glow-1";
+    "hover:text-[var(--color-foreground)] hover:glow-1 " +
+    "focus-visible:text-[var(--color-foreground)] focus-visible:glow-1";
 
   return (
     <ul className={className}>
@@ -61,7 +60,6 @@ export default function LinksList({ className }: LinksListProps) {
         <a
           href="mailto:gavin.bor0925@gmail.com"
           className={iconLinkStyle}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <EmailIcon className="h-12 w-12" />

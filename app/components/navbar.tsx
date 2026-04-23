@@ -2,14 +2,14 @@ export default function Navbar() {
   const aStyle =
     "text-[var(--color-foreground-dim)] " +
     "transition-[filter,color] duration-200 " +
-    "hover:text-[var(--color-foreground)] " +
-    "hover:glow-1";
+    "hover:text-[var(--color-foreground)] hover:glow-1 " +
+    "focus-visible:text-[var(--color-foreground)] focus-visible:glow-1";
 
   return (
     <nav
       className={
-        "flex justify-center text-3xl font-mono w-full " +
-        "sticky top-0 z-50 backdrop-filter backdrop-blur-[2px] " +
+        "flex justify-center text-xl sm:text-2xl md:text-3xl font-mono " +
+        "w-full sticky top-0 z-50 backdrop-filter backdrop-blur-[2px] " +
         "[text-shadow:0_2px_16px_rgba(0,0,0,0.8)] bg-black/40"
       }
     >

@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import About from "./components/main/about";
-import Avatar from "./components/main/avatar";
-import LinksList from "./components/main/links-list";
-import Projects from "./components/main/projects";
-import Skills from "./components/main/skills";
+import About from "./components/page/about";
+import Avatar from "./components/page/avatar";
+import LinksList from "./components/page/links-list";
+import Projects from "./components/page/projects";
+import Skills from "./components/page/skills";
 import Navbar from "./components/navbar";
 
 /**
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-[55%] mx-auto">
+      <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
         <main>
           <section id="home">
             <div className="m-3 mt-30 flex flex-col items-center text-center">
@@ -38,9 +38,12 @@ export default function Home() {
 
           <Suspense
             fallback={
-              <div className="m-3 mt-30 text-[1.3rem] text-center">
+              <p
+                className="m-3 mt-30 text-[1.3rem] text-center"
+                aria-live="polite"
+              >
                 (Fetching project data from GitHub, please wait...)
-              </div>
+              </p>
             }
           >
             <Projects />
@@ -50,7 +53,7 @@ export default function Home() {
         </main>
 
         <footer className="m-3 mt-20 text-[1rem] text-center text-foreground-dim">
-          <p>&copy; {new Date().getFullYear()} Gavin Borne</p>
+          <p>&copy; 2026-present Gavin Borne</p>
           <p>
             Dev icons primarily obtained from{" "}
             <a href="https://devicon.dev/" className="link">
