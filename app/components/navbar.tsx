@@ -2,8 +2,8 @@ export default function Navbar() {
   const aStyle =
     "text-[var(--color-foreground-dim)] " +
     "transition-[filter,color] duration-200 " +
-    "hover:text-[var(--color-foreground)] " +
-    "hover:glow-1";
+    "hover:text-[var(--color-foreground)] hover:glow-1 " +
+    "focus-visible:text-[var(--color-foreground)] focus-visible:glow-1";
 
   return (
     <nav

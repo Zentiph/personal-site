@@ -17,6 +17,10 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Gavin Borne",
   description: "Gavin Borne's portfolio site",
+  openGraph: {
+    images: "/me.jpeg",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

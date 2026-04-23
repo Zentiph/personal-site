@@ -38,9 +38,12 @@ export default function Home() {
 
           <Suspense
             fallback={
-              <div className="m-3 mt-30 text-[1.3rem] text-center">
+              <p
+                className="m-3 mt-30 text-[1.3rem] text-center"
+                aria-live="polite"
+              >
                 (Fetching project data from GitHub, please wait...)
-              </div>
+              </p>
             }
           >
             <Projects />
