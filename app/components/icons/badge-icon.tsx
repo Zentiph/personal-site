@@ -4,8 +4,8 @@ type BadgeIconProps = {
   readonly imgSrc: string;
   readonly text: string;
   readonly className?: string;
-  readonly width: number;
-  readonly height: number;
+  readonly width?: number;
+  readonly height?: number;
 };
 
 /**
@@ -13,8 +13,8 @@ type BadgeIconProps = {
  * @param {string} props.imgSrc - The source of the image.
  * @param {string} props.text - The text to display below the image.
  * @param {string} [props.className] - Additional CSS classes for the component.
- * @param {number} props.width - The width of the image in pixels.
- * @param {number} props.height - The height of the image in pixels.
+ * @param {number} [props.width] - The width of the image in pixels.
+ * @param {number} [props.height] - The height of the image in pixels.
  * @returns A JSX element representing the badge icon.
  */
 export default function BadgeIcon({

@@ -59,7 +59,7 @@ const GRAPHQL_QUERY = `#graphql
 async function getRepos(): Promise<GQLRepo[] | null> {
   const token = process.env.GITHUB_API_TOKEN;
   if (!token) {
-    console.error("Missing GITHUB_TOKEN");
+    console.error("Missing GITHUB_API_TOKEN");
     return null;
   }
 
