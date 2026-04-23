@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import About from "./components/main/about";
-import Avatar from "./components/main/avatar";
-import LinksList from "./components/main/links-list";
-import Projects from "./components/main/projects";
-import Skills from "./components/main/skills";
+import About from "./components/page/about";
+import Avatar from "./components/page/avatar";
+import LinksList from "./components/page/links-list";
+import Projects from "./components/page/projects";
+import Skills from "./components/page/skills";
 import Navbar from "./components/navbar";
 
 /**

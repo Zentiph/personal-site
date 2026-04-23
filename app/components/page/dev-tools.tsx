@@ -1,0 +1,57 @@
+import BadgeList from "../badge-list";
+
+type DevToolsProps = {
+  readonly className?: string;
+};
+
+/**
+ * A component that displays a list of development tools.
+ * @param {string} [props.className] - Additional CSS classes for the component.
+ * @returns The JSX element representing the component.
+ */
+export default function DevTools({ className }: DevToolsProps) {
+  return (
+    <section className={className}>
+      <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">
+        Dev Tools
+      </h3>
+
+      <BadgeList
+        badgeIcons={[
+          {
+            imgSrc: "/icons/badges/vscode.svg",
+            text: "VSCode",
+          },
+          {
+            imgSrc: "/icons/badges/git.svg",
+            text: "Git",
+          },
+          {
+            imgSrc: "/icons/badges/github.svg",
+            text: "GitHub",
+          },
+          {
+            imgSrc: "/icons/badges/sqlite.svg",
+            text: "SQLite",
+          },
+          {
+            imgSrc: "/icons/badges/postgresql.svg",
+            text: "PostgreSQL",
+          },
+          {
+            imgSrc: "/icons/badges/docker.svg",
+            text: "Docker",
+          },
+          {
+            imgSrc: "/icons/badges/maven.svg",
+            text: "Maven",
+          },
+          {
+            imgSrc: "/icons/badges/react.svg",
+            text: "React",
+          },
+        ]}
+      />
+    </section>
+  );
+}

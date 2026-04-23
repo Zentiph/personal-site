@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type BadgeIconProps = {
+export type BadgeIconProps = {
   readonly imgSrc: string;
   readonly text: string;
   readonly className?: string;

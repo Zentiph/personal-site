@@ -67,7 +67,7 @@ async function getRepos(): Promise<GQLRepo[] | null> {
     return null;
   }
 
-  let res = undefined;
+  let res: Response;
   try {
     res = await fetch("https://api.github.com/graphql", {
       method: "POST",
