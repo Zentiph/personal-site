@@ -5,6 +5,7 @@ import LinksList from "./components/page/links-list";
 import Projects from "./components/page/projects";
 import Skills from "./components/page/skills";
 import Navbar from "./components/navbar";
+import { CURRENT_YEAR } from "./config";
 
 /**
  * The homepage component.
@@ -28,7 +29,7 @@ export default function Home() {
           <section id="home">
             <div className="m-3 mt-30 flex flex-col items-center text-center">
               <Avatar src="/me.jpeg" alt="Gavin Borne" />
-              <h1 className="m-3 font-mono text-8xl text-center glow-4">
+              <h1 className="m-3 font-mono text-5xl sm:text-8xl text-center glow-4">
                 Gavin Borne
               </h1>
               <p className="m-3 text-[1.75rem] text-center text-foreground-dim">
@@ -58,7 +59,7 @@ export default function Home() {
         </main>
 
         <footer className="m-3 mt-20 text-[1rem] text-center text-foreground-dim">
-          <p>&copy; 2026-present Gavin Borne</p>
+          <p>&copy; {CURRENT_YEAR} Gavin Borne</p>
           <p>
             Dev icons primarily obtained from{" "}
             <a href="https://devicon.dev/" target="_blank" className="link">

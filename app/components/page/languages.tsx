@@ -1,4 +1,4 @@
-import { DEFAULT_H3 } from "@/app/tailwind-styles";
+import { DEFAULT_H3 } from "@/app/config";
 import BadgeList from "../badge-list";
 
 type LanguagesProps = {

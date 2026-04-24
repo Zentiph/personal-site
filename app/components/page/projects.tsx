@@ -1,8 +1,10 @@
 import {
   DEFAULT_H2,
   DEFAULT_P,
+  GITHUB_USERNAME,
+  REPO_FILTER_TOPIC,
   VERTICAL_CONTAINER,
-} from "@/app/tailwind-styles";
+} from "@/app/config";
 import Image from "next/image";
 
 type Language = {
@@ -25,14 +27,12 @@ type GQLRepo = {
 
 const PLACEHOLDER_IMAGE = "/project_banner_placeholder.png";
 
-const USERNAME = "Zentiph";
-
 const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
 const GRAPHQL_QUERY = `#graphql
   query {
     search(
-      query: "user:${USERNAME} topic:portfolio",
+      query: "user:${GITHUB_USERNAME} topic:${REPO_FILTER_TOPIC}",
       type: REPOSITORY,
       first: ${GRAPHQL_REPO_FETCH_COUNT}
     ) {

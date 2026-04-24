@@ -1,8 +1,4 @@
-import {
-  DEFAULT_H2,
-  DEFAULT_P,
-  VERTICAL_CONTAINER,
-} from "@/app/tailwind-styles";
+import { DEFAULT_H2, DEFAULT_P, VERTICAL_CONTAINER } from "@/app/config";
 import DevTools from "./dev-tools";
 import Frameworks from "./frameworks";
 import Languages from "./languages";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { DEFAULT_H2, DEFAULT_P } from "./tailwind-styles";
+import { DEFAULT_H2, DEFAULT_P } from "./config";
 
 export default function ErrorPage({
   error,

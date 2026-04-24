@@ -43,6 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${plexSans.variable} ${plexMono.variable} scroll-pt-24`}
     >
+      <link rel="preconnect" href="https://api.github.com" />
       <body className={"antialiased font-sans"}>{children}</body>
     </html>
   );

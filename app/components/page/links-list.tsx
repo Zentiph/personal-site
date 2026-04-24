@@ -1,3 +1,4 @@
+import { EMAIL } from "@/app/config";
 import { EmailIcon } from "../icons/svg/email-icon";
 import { GitHubIcon } from "../icons/svg/github-icon";
 import { LinkedInIcon } from "../icons/svg/linkedin-icon";
@@ -57,12 +58,8 @@ export default function LinksList({ className }: LinksListProps) {
         </a>
       </li>
       <li>
-        <a
-          href="mailto:gavin.bor0925@gmail.com"
-          className={iconLinkStyle}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        {/* target works in some browsers, nice to have so email doesn't open in same tab */}
+        <a href={`mailto:${EMAIL}`} className={iconLinkStyle} target="_blank">
           <EmailIcon className="h-12 w-12" />
           <span className="text-sm">Email</span>
         </a>
