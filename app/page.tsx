@@ -17,9 +17,14 @@ import Navbar from "./components/navbar";
 export default function Home() {
   return (
     <>
+      <a href="#main" className="sr-only">
+        Skip to main content
+      </a>
+
       <Navbar />
+
       <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto">
-        <main>
+        <main id="main">
           <section id="home">
             <div className="m-3 mt-30 flex flex-col items-center text-center">
               <Avatar src="/me.jpeg" alt="Gavin Borne" />
