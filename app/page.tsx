@@ -56,7 +56,7 @@ export default function Home() {
           <p>&copy; 2026-present Gavin Borne</p>
           <p>
             Dev icons primarily obtained from{" "}
-            <a href="https://devicon.dev/" className="link">
+            <a href="https://devicon.dev/" target="_blank" className="link">
               devicon.dev
             </a>
             {""}. Other icons obtained from various sources.
