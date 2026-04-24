@@ -70,8 +70,6 @@ body {
     calc(50% - 60px) calc(50% - 60px),
     /* gradient */ 0 0;
 
-  background-attachment: fixed, fixed, fixed, fixed, fixed;
-
   color: var(--color-foreground);
   font-family: var(--font-sans);
 }

@@ -9,6 +9,9 @@ const config: Config = {
       const filterDecl = {
         filter:
           "drop-shadow(0 0 var(--tw-glow-size, 0px) var(--tw-glow-color, currentColor))",
+        "@media (prefers-reduced-motion: reduce)": {
+          filter: "none",
+        },
       };
 
       // size
