@@ -1,3 +1,4 @@
+import { DEFAULT_H3 } from "@/app/tailwind-styles";
 import BadgeList from "../badge-list";
 
 type DevToolsProps = {
@@ -12,9 +13,7 @@ type DevToolsProps = {
 export default function DevTools({ className }: DevToolsProps) {
   return (
     <section className={className}>
-      <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">
-        Dev Tools
-      </h3>
+      <h3 className={DEFAULT_H3}>Dev Tools</h3>
 
       <BadgeList
         badgeIcons={[

@@ -1,3 +1,8 @@
+import {
+  DEFAULT_H2,
+  DEFAULT_P,
+  VERTICAL_CONTAINER,
+} from "@/app/tailwind-styles";
 import Image from "next/image";
 
 type Language = {
@@ -109,10 +114,12 @@ export default async function Projects() {
   const repos = await getRepos();
 
   return (
-    <section id="projects">
-      <h2 className="m-5 mt-30 font-mono text-5xl text-center glow-1">
-        Featured Projects
-      </h2>
+    <section id="projects" className={VERTICAL_CONTAINER}>
+      <h2 className={DEFAULT_H2}>Featured Projects</h2>
+
+      <p className={DEFAULT_P}>
+        Here are some of my favorite projects I've worked on in my free time.
+      </p>
 
       {repos ? (
         <ul

@@ -1,16 +1,20 @@
+import {
+  DEFAULT_H2,
+  DEFAULT_P,
+  VERTICAL_CONTAINER,
+} from "@/app/tailwind-styles";
+
 /**
  * The about section of the page.
  *
  * @returns A JSX element representing the component.
  */
 export default function About() {
-  const p_style = "m-3 text-[1.3rem] text-center";
-
   return (
-    <section id="about">
-      <h2 className="m-5 mt-50 font-mono text-5xl text-center glow-1">About</h2>
+    <section id="about" className={VERTICAL_CONTAINER}>
+      <h2 className={DEFAULT_H2}>About</h2>
 
-      <p className={p_style}>
+      <p className={DEFAULT_P}>
         Hi there! I'm <strong>Gavin</strong>, and I'm a second year computer
         science student at RIT, though I started programming long before my
         enrollment. I've primarily focused on <strong>back-end</strong>{" "}
@@ -19,7 +23,7 @@ export default function About() {
         range of languages and tools, and I'm always eager to learn new ones.
       </p>
 
-      <p className={p_style}>
+      <p className={DEFAULT_P}>
         All of my projects and programming work traces back to a{" "}
         <strong>love of learning</strong> and <strong>exploration</strong>. I
         enjoy not just the technical aspects of programming, but also the

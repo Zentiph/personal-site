@@ -1,3 +1,4 @@
+import { DEFAULT_H3 } from "@/app/tailwind-styles";
 import BadgeList from "../badge-list";
 
 type LanguagesProps = {
@@ -14,9 +15,7 @@ type LanguagesProps = {
 export default function Languages({ className }: LanguagesProps) {
   return (
     <section className={className}>
-      <h3 className="m-5 mt-20 font-mono text-3xl text-center glow-0.5">
-        Languages
-      </h3>
+      <h3 className={DEFAULT_H3}>Languages</h3>
 
       <BadgeList
         badgeIcons={[
