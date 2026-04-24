@@ -17,7 +17,7 @@ const plexMono = IBM_Plex_Mono({
 function getMetadataBase() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   if (!siteUrl) {
-    console.log("Missing NEXT_PUBLIC_SITE_URL");
+    console.error("Missing NEXT_PUBLIC_SITE_URL");
     return "http://localhost:3000";
   }
   return new URL(siteUrl);
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "Gavin Borne",
   description: "Gavin Borne's portfolio site",
   openGraph: {
-    images: "/me.jpeg",
+    images: ["/me.jpeg"],
     type: "website",
   },
 };
@@ -43,7 +43,27 @@ export default function RootLayout({
       lang="en"
       className={`${plexSans.variable} ${plexMono.variable} scroll-pt-24`}
     >
-      <link rel="preconnect" href="https://api.github.com" />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Gavin Borne",
+              url: "https://gavinborne.com",
+              email: "gavin.bor0925@gmail.com",
+              sameAs: [
+                "https://github.com/Zentiph",
+                "https://linkedin.com/in/gavin-borne",
+              ],
+              jobTitle: "Full-Stack Developer",
+            }),
+          }}
+        />
+        <link rel="preconnect" href="https://api.github.com" />
+      </head>
+
       <body className={"antialiased font-sans"}>{children}</body>
     </html>
   );
