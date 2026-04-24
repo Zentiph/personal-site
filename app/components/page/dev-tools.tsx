@@ -22,12 +22,32 @@ export default function DevTools({ className }: DevToolsProps) {
             text: "VSCode",
           },
           {
+            imgSrc: "/icons/badges/windows11.svg",
+            text: "Windows",
+          },
+          {
+            imgSrc: "/icons/badges/linux.svg",
+            text: "Linux",
+          },
+          {
             imgSrc: "/icons/badges/git.svg",
             text: "Git",
           },
           {
             imgSrc: "/icons/badges/github.svg",
             text: "GitHub",
+          },
+          {
+            imgSrc: "/icons/badges/docker.svg",
+            text: "Docker",
+          },
+          {
+            imgSrc: "/icons/badges/react.svg",
+            text: "React",
+          },
+          {
+            imgSrc: "/icons/badges/maven.svg",
+            text: "Maven",
           },
           {
             imgSrc: "/icons/badges/sqlite.svg",
@@ -38,16 +58,8 @@ export default function DevTools({ className }: DevToolsProps) {
             text: "PostgreSQL",
           },
           {
-            imgSrc: "/icons/badges/docker.svg",
-            text: "Docker",
-          },
-          {
-            imgSrc: "/icons/badges/maven.svg",
-            text: "Maven",
-          },
-          {
-            imgSrc: "/icons/badges/react.svg",
-            text: "React",
+            imgSrc: "/icons/badges/datagrip.svg",
+            text: "DataGrip",
           },
         ]}
       />
