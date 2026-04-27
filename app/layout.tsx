@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -65,6 +67,8 @@ export default function RootLayout({
       </head>
 
       <body className={"antialiased font-sans"}>{children}</body>
+
+      <SpeedInsights />
     </html>
   );
 }
