@@ -26,6 +26,7 @@ const config: Config = {
       );
 
       // flatten colors so glow-red works
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const rawColors = theme("colors") as Record<string, any>;
       const glowColors: Record<string, string> = {};
 
