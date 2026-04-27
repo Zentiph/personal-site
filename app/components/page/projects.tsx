@@ -5,27 +5,13 @@ import {
   REPO_FILTER_TOPIC,
   VERTICAL_CONTAINER,
 } from "@/app/config";
-import Image from "next/image";
+import RepoCard, { Repo } from "../repo-card";
 
-type Language = {
-  name: string;
-  color: string;
-};
+const MINUTES = 60;
+const HOURS = 60 * MINUTES;
+const DAYS = 24 * HOURS;
 
-type GQLRepo = {
-  name: string;
-  description: string;
-  url: string;
-  openGraphImageUrl: string;
-  usesCustomOpenGraphImage: boolean;
-  stargazerCount: number;
-  primaryLanguage: Language | null;
-  repositoryTopics: {
-    nodes: { topic: { name: string } }[];
-  };
-};
-
-const PLACEHOLDER_IMAGE = "/project_banner_placeholder.png";
+const REVALIDATE_EVERY = 1 * DAYS;
 
 const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
@@ -61,11 +47,67 @@ const GRAPHQL_QUERY = `#graphql
   }
 `;
 
+// some hard-coded repo info in case the API call fails.
+const FIZZBUZZ_REPO_INFO: Repo = {
+  name: "FizzBuzz",
+  description:
+    "User-focused Discord bot made for fun and interactive activities.",
+  url: "https://github.com/Zentiph/FizzBuzz",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/884610230/274191cf-2f8a-48bf-9268-8b3df606270a",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "Python",
+    color: "#3572A5",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+const IRONCLAD_REPO_INFO: Repo = {
+  name: "ironclad",
+  description:
+    "ironclad helps developers write defensive, self-documenting Python code.",
+  url: "https://github.com/Zentiph/ironclad",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/1051859165/81bfe995-0630-4a23-a9f5-16c2b37a5816",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "Python",
+    color: "#3572A5",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+const PERSONAL_SITE_REPO_INFO: Repo = {
+  name: "personal-site",
+  description:
+    "My portfolio site, showcasing some featured projects and my developer skillset.",
+  url: "https://github.com/Zentiph/personal-site",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/1161987468/20cd10c8-d1f0-4ba2-9fd0-fa7b605dbddf",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "TypeScript",
+    color: "#3178C6",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+
 /**
  * Gets all repos for a user.
  * @returns A promise that resolves to an array of repos.
  */
-async function getRepos(): Promise<GQLRepo[] | null> {
+async function getRepos(): Promise<Repo[] | null> {
   const token = process.env.GITHUB_API_TOKEN;
   if (!token) {
     console.error("Missing GITHUB_API_TOKEN");
@@ -81,7 +123,7 @@ async function getRepos(): Promise<GQLRepo[] | null> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ query: GRAPHQL_QUERY }),
-      next: { revalidate: 3600 },
+      next: { revalidate: REVALIDATE_EVERY },
     });
   } catch (error) {
     console.error(error);
@@ -121,82 +163,31 @@ export default async function Projects() {
         Here are some of my favorite projects I've worked on in my free time.
       </p>
 
-      {repos ? (
-        <ul
-          className={
-            "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
-          }
-        >
-          {repos.map((repo) => (
-            <li key={repo.name} className="min-w-[80px] flex justify-center">
-              <a
-                href={repo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={
-                  "flex flex-col rounded-md overflow-hidden " +
-                  "border border-white/10 hover:border-white/30 " +
-                  "transition-colors items-center justify-start bg-card"
-                }
-              >
-                <Image
-                  src={
-                    repo.usesCustomOpenGraphImage
-                      ? repo.openGraphImageUrl
-                      : PLACEHOLDER_IMAGE
-                  }
-                  alt={repo.name}
-                  width={640}
-                  height={320}
-                  className="w-full aspect-[2/1] object-cover rounded-t-md"
-                />
-                <div className="p-3 w-full flex flex-col gap-2">
-                  <h3 className="font-mono text-2xl">{repo.name}</h3>
-                  <p className="text-sm text-foreground-dim">
-                    {repo.description || "No description provided."}
-                  </p>
-                  <div className="flex items-center gap-3 text-xs text-foreground-dim mt-1">
-                    {repo.primaryLanguage && (
-                      <span className="flex items-center gap-1">
-                        <span
-                          className="inline-block w-2.5 h-2.5 rounded-full"
-                          style={{
-                            backgroundColor: repo.primaryLanguage.color,
-                          }}
-                        />
-                        {repo.primaryLanguage.name}
-                      </span>
-                    )}
-                    {repo.stargazerCount > 0 && (
-                      <span className="flex items-center gap-1">
-                        ★ {repo.stargazerCount}
-                      </span>
-                    )}
-                  </div>
-                  {repo.repositoryTopics.nodes.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {repo.repositoryTopics.nodes
-                        .filter((n) => n.topic.name !== "portfolio")
-                        .map((n) => (
-                          <span
-                            key={n.topic.name}
-                            className="px-2 py-0.5 rounded text-xs bg-white/10 text-foreground-dim"
-                          >
-                            {n.topic.name}
-                          </span>
-                        ))}
-                    </div>
-                  )}
-                </div>
-              </a>
+      <ul
+        className={
+          "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
+        }
+      >
+        {repos ? (
+          repos.map((repo) => (
+            <li key={repo.name}>
+              <RepoCard repo={repo} />
             </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="m-3 text-[1.3rem] text-center text-red-500">
-          There was an error fetching the repositories. Please try again later.
-        </p>
-      )}
+          ))
+        ) : (
+          <>
+            <li>
+              <RepoCard repo={FIZZBUZZ_REPO_INFO} />
+            </li>
+            <li>
+              <RepoCard repo={IRONCLAD_REPO_INFO} />
+            </li>
+            <li>
+              <RepoCard repo={PERSONAL_SITE_REPO_INFO} />
+            </li>
+          </>
+        )}
+      </ul>
     </section>
   );
 }
