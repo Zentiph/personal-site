@@ -47,6 +47,62 @@ const GRAPHQL_QUERY = `#graphql
   }
 `;
 
+// some hard-coded repo info in case the API call fails.
+const FIZZBUZZ_REPO_INFO: Repo = {
+  name: "FizzBuzz",
+  description:
+    "User-focused Discord bot made for fun and interactive activities.",
+  url: "https://github.com/Zentiph/FizzBuzz",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/884610230/274191cf-2f8a-48bf-9268-8b3df606270a",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "Python",
+    color: "#3572A5",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+const IRONCLAD_REPO_INFO: Repo = {
+  name: "ironclad",
+  description:
+    "ironclad helps developers write defensive, self-documenting Python code.",
+  url: "https://github.com/Zentiph/ironclad",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/1051859165/81bfe995-0630-4a23-a9f5-16c2b37a5816",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "Python",
+    color: "#3572A5",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+const PERSONAL_SITE_REPO_INFO: Repo = {
+  name: "personal-site",
+  description:
+    "My portfolio site, showcasing some featured projects and my developer skillset.",
+  url: "https://github.com/Zentiph/personal-site",
+  openGraphImageUrl:
+    "https://repository-images.githubusercontent.com/1161987468/20cd10c8-d1f0-4ba2-9fd0-fa7b605dbddf",
+  usesCustomOpenGraphImage: true,
+  primaryLanguage: {
+    name: "TypeScript",
+    color: "#3178C6",
+  },
+  // placeholders
+  stargazerCount: 0,
+  repositoryTopics: {
+    nodes: [],
+  },
+};
+
 /**
  * Gets all repos for a user.
  * @returns A promise that resolves to an array of repos.
@@ -107,23 +163,31 @@ export default async function Projects() {
         Here are some of my favorite projects I've worked on in my free time.
       </p>
 
-      {repos ? (
-        <ul
-          className={
-            "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
-          }
-        >
-          {repos.map((repo) => (
+      <ul
+        className={
+          "m-5 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
+        }
+      >
+        {repos ? (
+          repos.map((repo) => (
             <li key={repo.name}>
               <RepoCard repo={repo} />
             </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="m-3 text-[1.3rem] text-center text-red-500">
-          There was an error fetching the repositories. Please try again later.
-        </p>
-      )}
+          ))
+        ) : (
+          <>
+            <li>
+              <RepoCard repo={FIZZBUZZ_REPO_INFO} />
+            </li>
+            <li>
+              <RepoCard repo={IRONCLAD_REPO_INFO} />
+            </li>
+            <li>
+              <RepoCard repo={PERSONAL_SITE_REPO_INFO} />
+            </li>
+          </>
+        )}
+      </ul>
     </section>
   );
 }
