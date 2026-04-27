@@ -7,6 +7,12 @@ import {
 } from "@/app/config";
 import RepoCard, { Repo } from "../repo-card";
 
+const MINUTES = 60;
+const HOURS = 60 * MINUTES;
+const DAYS = 24 * HOURS;
+
+const REVALIDATE_EVERY = 1 * DAYS;
+
 const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
 const GRAPHQL_QUERY = `#graphql
@@ -61,7 +67,7 @@ async function getRepos(): Promise<Repo[] | null> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ query: GRAPHQL_QUERY }),
-      next: { revalidate: 3600 },
+      next: { revalidate: REVALIDATE_EVERY },
     });
   } catch (error) {
     console.error(error);
