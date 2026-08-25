@@ -15,6 +15,7 @@ const REVALIDATE_EVERY = 1 * DAYS;
 
 const GRAPHQL_REPO_FETCH_COUNT = 50;
 const GRAPHQL_TOPICS_FETCH_COUNT = 10;
+const GRAPHQL_LANGUAGES_FETCH_COUNT = 3;
 const GRAPHQL_QUERY = `#graphql
   query {
     search(
@@ -30,9 +31,11 @@ const GRAPHQL_QUERY = `#graphql
           openGraphImageUrl
           usesCustomOpenGraphImage
           stargazerCount
-          primaryLanguage {
-            name
-            color
+          languages(first: ${GRAPHQL_LANGUAGES_FETCH_COUNT}, orderBy: {field: SIZE, direction: DESC}) {
+            nodes {
+              name
+              color
+            }
           }
           repositoryTopics(first: ${GRAPHQL_TOPICS_FETCH_COUNT}) {
             nodes {
@@ -56,9 +59,8 @@ const FIZZBUZZ_REPO_INFO: Repo = {
   openGraphImageUrl:
     "https://repository-images.githubusercontent.com/884610230/274191cf-2f8a-48bf-9268-8b3df606270a",
   usesCustomOpenGraphImage: true,
-  primaryLanguage: {
-    name: "Python",
-    color: "#3572A5",
+  languages: {
+    nodes: [{ name: "Python", color: "#3572A5" }],
   },
   // placeholders
   stargazerCount: 0,
@@ -74,9 +76,8 @@ const IRONCLAD_REPO_INFO: Repo = {
   openGraphImageUrl:
     "https://repository-images.githubusercontent.com/1051859165/81bfe995-0630-4a23-a9f5-16c2b37a5816",
   usesCustomOpenGraphImage: true,
-  primaryLanguage: {
-    name: "Python",
-    color: "#3572A5",
+  languages: {
+    nodes: [{ name: "Python", color: "#3572A5" }],
   },
   // placeholders
   stargazerCount: 0,
@@ -92,9 +93,8 @@ const PERSONAL_SITE_REPO_INFO: Repo = {
   openGraphImageUrl:
     "https://repository-images.githubusercontent.com/1161987468/20cd10c8-d1f0-4ba2-9fd0-fa7b605dbddf",
   usesCustomOpenGraphImage: true,
-  primaryLanguage: {
-    name: "TypeScript",
-    color: "#3178C6",
+  languages: {
+    nodes: [{ name: "TypeScript", color: "#3178C6" }],
   },
   // placeholders
   stargazerCount: 0,
