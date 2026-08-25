@@ -11,12 +11,13 @@ export default function About() {
       <h2 className={DEFAULT_H2}>About</h2>
 
       <p className={DEFAULT_P}>
-        Hi there! I'm <strong>Gavin</strong>, and I'm a second year computer
-        science student at RIT, though I started programming long before my
-        enrollment. I've primarily focused on <strong>back-end</strong>{" "}
-        development, but I enjoy <strong>front-end</strong> and{" "}
-        <strong>full-stack</strong> development as well. I've worked with a wide
-        range of languages and tools, and I'm always eager to learn new ones.
+        Hi there! I'm <strong>Gavin</strong>, and I'm a{" "}
+        <strong>third year computer science student</strong> at RIT, though I
+        started programming long before my enrollment. I've primarily focused on{" "}
+        <strong>back-end</strong> development, but I enjoy{" "}
+        <strong>front-end</strong> and <strong>full-stack</strong> development
+        as well. I've worked with a wide range of languages and tools, and I'm
+        always eager to learn new ones.
       </p>
 
       <p className={DEFAULT_P}>

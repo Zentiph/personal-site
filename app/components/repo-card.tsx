@@ -13,7 +13,9 @@ export type Repo = {
   openGraphImageUrl: string;
   usesCustomOpenGraphImage: boolean;
   stargazerCount: number;
-  primaryLanguage: Language | null;
+  languages: {
+    nodes: Language[];
+  };
   repositoryTopics: {
     nodes: { topic: { name: string } }[];
   };
@@ -63,15 +65,15 @@ export default function RepoCard({ repo }: RepoCardProps) {
               "flex items-center gap-3 text-xs text-foreground-dim mt-1"
             }
           >
-            {repo.primaryLanguage && (
-              <span className="flex items-center gap-1">
+            {repo.languages.nodes.map((lang) => (
+              <span key={lang.name} className="flex items-center gap-1">
                 <span
                   className="inline-block w-2.5 h-2.5 rounded-full"
-                  style={{ backgroundColor: repo.primaryLanguage.color }}
+                  style={{ backgroundColor: lang.color }}
                 />
-                {repo.primaryLanguage.name}
+                {lang.name}
               </span>
-            )}
+            ))}
 
             {repo.stargazerCount > 0 && (
               <span className="flex items-center gap-1">
